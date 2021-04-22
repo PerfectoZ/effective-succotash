@@ -39,13 +39,15 @@ class graph
     int V ;
     list<pair<int,int>> l ;
     public :
-        int add_edge(int x , int y)
+        void add_edge(int x , int y)
         {
             l.pb(mp(x,y));
         }
         int findset(int i , int parent[])
         {
             if(i==-1) return i ;
+            // Path Compression Optimization (Use only if needed)
+            /* return parent[i]=findset(parent[i],parent);*/
             return findset(parent[i],parent);
         }
         void union_set(int x , int y , int parent[])
