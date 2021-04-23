@@ -1,3 +1,4 @@
+//Union Rank Optimisation almost reduces the time complexity to O(1)
 #include<bits/stdc++.h>
 
 #define ll long long int
@@ -76,6 +77,7 @@ class graph
                 else return true ;
             }
             delete [] parent ;
+            delete [] rank ;
             return false ;
         }
 
