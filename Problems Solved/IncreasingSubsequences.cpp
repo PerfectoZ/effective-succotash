@@ -35,7 +35,7 @@ ll power(ll x, ll b) {ll p = 1;while (b > 0) {if(b&1) {p = p * x; p %= mod;} b >
 using namespace std;
 
 vector<ll> height , coins ;
-set<ll> amts ;
+set<ll> amts ; // can use vector to store all the sequences 
 ll n,k,h,c,sum=0 ;
 
 void dfs(vector<ll> height , vector<ll> coins , ll sum , int src , int last)
