@@ -34,7 +34,7 @@ ll power(ll x, ll b) {ll p = 1;while (b > 0) {if(b&1) {p = p * x; p %= mod;} b >
 
 using namespace std;
 
-vector<ll> graph ;
+vector<ll> graph[100005] ;
 
 int main()
 {
@@ -43,7 +43,7 @@ int main()
     {
         ll n,m ;
         cin>>n>>m ;
-        graph.resize(n+1);
+        //graph.resize(n+1);
         forn(i,m)
         {
             ll u,v ;
