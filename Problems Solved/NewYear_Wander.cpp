@@ -44,6 +44,7 @@ int main()
         ll n,m ;
         cin>>n>>m ;
         //graph.resize(n+1);
+        forn1(i,n) graph[i].clear();
         forn(i,m)
         {
             ll u,v ;
