@@ -38,18 +38,30 @@ ll steps2one(ll n , ll dp[]) //top down
 {
     if(n==1 or n==0)
     if(dp[n]) return dp[n];
-    ll ans=1+min( steps2one(n/2,dp) , min(steps2one(n/3,dp),steps2one(n-1,dp)) );  
-    return dp[n]=ans ;
+
+    ll a1=a2=a3=INT_MAX ;
+
+    if(n%3==0) a1=1+steps2one(n/3,dp);
+    if(n%2==0) a2=1+steps2one(n/2,dp);
+    a3=1+steps2one(n-1,dp);
+
+    return dp[n]=min(a1,min(a2,a3));
 }
 
 ll steps2oneUB(ll n , ll ub[]) // bottomup
 {
     if(ub[n]) return ub[n] ;
+
     for(ll i=2 ; i<=n ; i++)
     {
-        dp[i]=1+min( dp[i/2] , min(dp[i/3],dp[i-1]) );
+        ll a1=a2=a3=INT_MAX ;
+        if(i%2==0) a1=dp[i/2]+1 ;
+        if(i%3==0) a2=dp[i/3]+1 ;
+        a3=1+dp[i-1];
+        dp[i]=min(a1,min(a2,a3));
     }
-    return dp[n] ;
+
+    return ub[n] ;
 }
 
 int32_t main()
