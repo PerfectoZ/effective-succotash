@@ -1,37 +1,30 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main()
-{
-    int N ;
-    cin>>N ;
-    int A[N][N];
-    for (int i=0 ; i<N ; i++)
-    {
-        for (int j=0 ; j<N ; j++)
+ class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        
+        for(int i=0;i<matrix.size();i++)
         {
-            cin>>A[i][j];
+            for(int j=0;j<matrix[i].size();j++){
+                
+                 if(j>i)
+                     swap(matrix[i][j],matrix[j][i]);
+            }
         }
-    }
-    for (int i=0 ; i<N/2 ; ++i)
-    {
-        for (int j=0 ; j<N ; ++j)
-        {
-            swap(A[i][j] , A[j][i]);
+        
+        
+        for(int i=0;i<matrix.size();i++){
+            
+            int j=matrix[i].size()-1;
+            int k=0;
+            while(k<j)
+            {
+                swap(matrix[i][k],matrix[i][j]);
+                j--;
+                k++;
+            }
         }
+        
+        
+        
     }
-    for (int i=0 ; i<N ; i++)
-    {
-        reverse(A[i] , A[i]+N);
-    }
-    for (int i=0 ; i<N ; i++)
-    {
-        for (int j=0 ; j<N ; j++)
-        {
-            cout<<A[i][j]<<" ";
-        }
-        cout<<"\n" ;
-    }
-    return 0;
-}
+};
