@@ -1,5 +1,3 @@
-//Find Maximum XOR value in the range A to B
-
 #include<bits/stdc++.h>
 
 #define ll long long int
@@ -44,9 +42,8 @@ int main()
     ba = bitset<64>(a);
     bb = bitset<64>(b);
     bitset<64> ans ;
-    cout<<ba<<endl<<bb<<endl ;
     bool ucbf=false ;
-    forn(i,64)
+    for(ll i=63 ; i>=0 ; i--)
     {
         if(bb[i]==ba[i])
         {
@@ -59,6 +56,6 @@ int main()
             ucbf=true ;
         }
     }
-    cout<<ans<<endl ;
+	cout<<ans.to_ulong();
     return 0;
 }
